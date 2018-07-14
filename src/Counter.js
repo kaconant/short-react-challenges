@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import './Counter.css';
 
-class Header extends Component {
+class Counter extends Component {
 
+    constructor() {
+        super();
+        this.state = { count: 0 };
+    }
+
+    increment() {
+        this.setState({count: this.state.count + 1});
+    }
 
     render() {
         return (
         <div>
-            <h1>
-                You have {this.state.cats} cats and {this.state.dogs} dogs, therefore you are a {this.state.cats > this.state.dogs ? 'cat' : 'dog'} person!
-            </h1>
+            <h1>{this.state.count}</h1>
+            <button onClick={this.increment.bind(this)}>Increment</button>
             <Link to="/">Homepage</Link>
         </div>
-        )}
+        )}  
 };
 
-export default Header;
+export default Counter;
